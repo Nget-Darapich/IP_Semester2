@@ -14,9 +14,14 @@ import { createUserDto } from './dto/create-user.dto';
 export class UsersController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('/:username')
-  getUser(@Param('username') username: string) {
-    return this.userService.getUser(username);
+  @Get('/:id')
+  findOne(@Param('id') id: number) {
+    return this.userService.findOne(id);
+  }
+
+  @Get('/')
+  findAll() {
+    return this.userService.findAll();
   }
 
   @Post('/')
@@ -24,15 +29,16 @@ export class UsersController {
     return this.userService.createUser(body);
   }
 
-  @Patch('/:username')
+  @Patch('/:id')
   updateUser(
+    @Param('id') id: string,
     @Body() body: { username: string; email: string; password: string },
   ) {
-    return this.userService.updateUser(body);
+    return this.userService.updateUser(+id, body);
   }
 
-  @Delete('/users/:username')
-  deleteUser(@Param('username') username: string) {
-    return this.userService.deleteUser(username);
+  @Delete('/users/:id')
+  deleteUser(@Param('id') id: number) {
+    return this.userService.deleteUser(id);
   }
 }

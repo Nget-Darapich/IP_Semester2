@@ -10,7 +10,7 @@ export class UserService {
     private usersRepo: Repository<User>,
   ) {}
 
-  create(userData: Partial<User>) {
+  createUser(userData: Partial<User>) {
     const user = this.usersRepo.create(userData);
     return this.usersRepo.save(user);
   }
@@ -23,12 +23,12 @@ export class UserService {
     return this.usersRepo.findOne({ where: { id }, relations: ['tasks'] });
   }
 
-  async update(id: number, updateData: Partial<User>) {
+  async updateUser(id: number, updateData: Partial<User>) {
     await this.usersRepo.update(id, updateData);
     return this.findOne(id);
   }
 
-  remove(id: number) {
+  deleteUser(id: number) {
     return this.usersRepo.delete(id);
   }
 }
