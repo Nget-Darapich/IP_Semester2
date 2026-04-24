@@ -5,6 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ReceiptsModule } from './receipts/receipts.module';
 import { Receipt } from './database/entities/receipts.entity';
+import { NotificationsModule } from './notifications/notifications.module';
+import { OrdersModule } from './orders/orders.module';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { Receipt } from './database/entities/receipts.entity';
       logging: process.env.NODE_ENV === 'development',
     }),
     ReceiptsModule,
+    NotificationsModule,
+    OrdersModule,
+    CoreModule,
   ],
   controllers: [AppController],
   providers: [AppService],

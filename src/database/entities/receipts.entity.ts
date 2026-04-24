@@ -9,20 +9,20 @@ import {
 @Entity('receipts')
 export class Receipt {
   @PrimaryGeneratedColumn('uuid')
-  receiptId: string;
+  receiptId!: string;
 
   @Column({ type: 'datetime' })
-  issuedAt: Date;
+  issuedAt!: Date;
 
   @Column({ type: 'varchar', length: 255 })
-  name: string;
+  name!: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  price: number;
+  price!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

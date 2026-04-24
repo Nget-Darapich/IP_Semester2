@@ -9,13 +9,13 @@ import {
 export class CreateReceiptDto {
   @IsDateString()
   @IsNotEmpty()
-  issuedAt: string;
+  issuedAt!: string;
 
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name!: string;
 
   @IsNumber()
   @Min(0)
-  price: number;
+  price!: number;
 }
