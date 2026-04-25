@@ -5,6 +5,8 @@ import { NotificationsService } from './notifications.service';
 import { CoreModule } from '../core/core.module';
 
 @Module({
+  // imports: [OrdersModule], // now module graph is circular too
+  // imports: [forwardRef(() => OrdersModule)],
   imports: [CoreModule],
   providers: [NotificationsService],
   exports: [NotificationsService],

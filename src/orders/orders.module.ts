@@ -1,4 +1,5 @@
-import { forwardRef, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+// import { forwardRef } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { OrdersService } from './orders.service';
 import { NotificationsModule } from '../notifications/notifications.module';
@@ -13,7 +14,8 @@ import { OrdersController } from './orders.controller';
         options: { host: 'localhost', port: 3001 },
       },
     ]),
-    forwardRef(() => NotificationsModule),
+    NotificationsModule,
+    // forwardRef(() => NotificationsModule),
   ],
   controllers: [OrdersController],
   providers: [OrdersService],
