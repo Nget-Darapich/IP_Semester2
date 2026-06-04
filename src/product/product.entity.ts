@@ -1,0 +1,20 @@
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Category } from '../category/category.entity';
+
+@Entity()
+export class Product {
+  @PrimaryGeneratedColumn()
+  id?: number;
+
+  @Column()
+  name?: string;
+
+  @Column('float')
+  price?: number;
+
+  @Column()
+  categoryId?: number;
+
+  @ManyToOne(() => Category)
+  category?: Category;
+}
